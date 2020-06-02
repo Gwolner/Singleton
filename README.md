@@ -1,4 +1,4 @@
-# Print Manager - Gerenciador de impressão
+# Print Manager
 
 > Gerenciador de impressão que, ao tentar gerar mais de uma de impresora, acaba sempre obtendo a mesma instância da classe Impressora, graças ao padrão de criação Singleton.
 
