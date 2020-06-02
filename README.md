@@ -1,19 +1,19 @@
 # Print Manager - Gerenciador de impressão
 
-> Gerenciador de impressão que, ao tentar gerar mais de uma de impresora, acaba sempre obtendo a mesma instância da classe Printer, graças ao padrão de criação Singleton.
+> Gerenciador de impressão que, ao tentar gerar mais de uma de impresora, acaba sempre obtendo a mesma instância da classe Impressora, graças ao padrão de criação Singleton.
 
 ## Objetivo
 
-Demonstrar que este padrão permite que uma classe instancie apenas um único objeto Printer (impressora). Sendo um exemplo simplificado de um gerenciador de impressão real, que deve acionar a mesma impressora para reliziar alguma impressão.
+Demonstrar que este padrão permite que uma classe instancie apenas um único objeto Impressora. Sendo um exemplo simplificado de um gerenciador de impressão real, que deve acionar a mesma impressora para reliziar alguma impressão.
 
 ## Antes do Singleton
 
 Método main:
 ```java
-Printer p1 = new Printer();
-Printer p2 = new Printer();
-Printer p3 = new Printer();
-Printer p4 = new Printer();		
+Impressora p1 = new Impressora();
+Impressora p2 = new Impressora();
+Impressora p3 = new Impressora();
+Impressora p4 = new Impressora();		
 
 System.out.println("Endereço de memória de p1: "+p1);
 System.out.println("Endereço de memória de p2: "+p2);
@@ -23,46 +23,46 @@ System.out.println("Endereço de memória de p4: "+p4);
 
 Saída: 
 ```java
-Endereço de memória de p1: modelo.Printer@15db9742
-Endereço de memória de p2: modelo.Printer@6d06d69c
-Endereço de memória de p3: modelo.Printer@7852e922
-Endereço de memória de p4: modelo.Printer@4e25154f
+Endereço de memória de p1: modelo.Impressora@15db9742
+Endereço de memória de p2: modelo.Impressora@6d06d69c
+Endereço de memória de p3: modelo.Impressora@7852e922
+Endereço de memória de p4: modelo.Impressora@4e25154f
 ```
 
-Cada tentativa de instanciar uma impressora acabou retornando um endereço de memória diferente, com isto podemos observar que foram criadas quatro instâncias.
+Cada tentativa de instanciar uma Impressora acabou retornando um endereço de memória diferente, com isto podemos observar que foram criadas quatro instâncias.
 
 ## Usando Singleton
 
-Ajustando a classe Printer no padrão Singleton:
+Classe Impressora no padrão Singleton:
 ```java
-public class Printer {
+public class Impressora {
 
-  private static Printer printer;
+  private static Impressora impressora;
 	
-  private Printer() {
+  private Impressora() {
 
   }
 	
-  public static Printer getInstance() { 
-    if(printer == null) {
-      printer = new Printer();
+  public static Impressora getInstance() { 
+    if(impressora == null) {
+      impressora = new Impressora();
     }
 
-    return printer;
+    return impressora;
   }
 }
 ```
 
-Torna-se o construtor private, cria-se um atributo private e static do tipo da classe, pois será referenciado por um método public e também static chamado getInstance(). Este método analisa se o atributo printer é null. 
+Torna-se o construtor private, cria-se um atributo private e static do tipo da classe, pois será referenciado por um método public e também static chamado getInstance(). Este método analisa se o atributo impressora é null. 
 
-Caso seja, irá instanciar a classe Printer e atribuir a printer e então retorna este atributo. Caso printer ja pussua o objeto Printer, o método irá apenas retornar o atributo.
+Caso seja, irá instanciar a classe Impressora e atribuir a impressora e então retorna este atributo. Caso impressora ja pussua o objeto Impressora, o método irá apenas retornar o atributo.
 
 Método main:
 ```java
-Printer p1 = Printer.getInstance();
-Printer p2 = Printer.getInstance();
-Printer p3 = Printer.getInstance();
-Printer p4 = Printer.getInstance();
+Impressora p1 = Impressora.getInstance();
+Impressora p2 = Impressora.getInstance();
+Impressora p3 = Impressora.getInstance();
+Impressora p4 = Impressora.getInstance();
 
 System.out.println("Endereço de memória de p1: "+p1);
 System.out.println("Endereço de memória de p2: "+p2);
@@ -72,11 +72,11 @@ System.out.println("Endereço de memória de p4: "+p4);
 
 Saída:
 ```java
-Endereço de memória de p1: modelo.Printer@15db9742
-Endereço de memória de p2: modelo.Printer@15db9742
-Endereço de memória de p3: modelo.Printer@15db9742
-Endereço de memória de p4: modelo.Printer@15db9742
+Endereço de memória de p1: modelo.Impressora@15db9742
+Endereço de memória de p2: modelo.Impressora@15db9742
+Endereço de memória de p3: modelo.Impressora@15db9742
+Endereço de memória de p4: modelo.Impressora@15db9742
 ```
 
-Para as quatro tentativas de instanciar a classe Printer, pode-se observar que o endereço de memória é sempre o mesmo. Isto significa que, uma vez instanciado, o objeto a ser manipulado é sempre o mesmo.
+Para as quatro tentativas de instanciar a classe Impressora, pode-se observar que o endereço de memória é sempre o mesmo. Isto significa que, uma vez instanciado, o objeto a ser manipulado é sempre o mesmo.
 
