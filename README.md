@@ -4,7 +4,7 @@
 
 ## Objetivo
 
-Demonstrar que este padrão permite que uma classe instancie apenas um único objeto Impressora. Sendo um exemplo simplificado de um gerenciador de impressão real, que deve acionar a mesma impressora para reliziar alguma impressão.
+Demonstrar que este padrão permite que uma classe instancie apenas um único objeto Impressora. Sendo um exemplo simplificado de um gerenciador de impressão real, que deve acionar a mesma impressora para realiziar alguma impressão.
 
 ## Antes do Singleton
 
