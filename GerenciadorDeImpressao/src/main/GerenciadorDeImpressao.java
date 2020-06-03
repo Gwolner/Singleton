@@ -1,6 +1,6 @@
 package main;
 
-import modelo.Impressora;
+import modelos.Impressora;
 
 public class GerenciadorDeImpressao {
 
