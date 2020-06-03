@@ -1,6 +1,6 @@
-# Print Manager
+# Gerenciador de impressão
 
-> Gerenciador de impressão que, ao tentar gerar mais de uma de impresora, acaba sempre obtendo a mesma instância da classe Impressora, graças ao padrão de criação Singleton.
+> Uso do padrão de criação Singleton para que, ao tentar instânciar mais de uma de impresora, o Gerenciador de impressão acabe sempre obtendo a mesma instância da classe Impressora. Desta forma, cada página de impressão é enviada para a mesma impressora de destino.
 
 ## Objetivo
 
